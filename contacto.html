@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VIII CONCURSO DE IDEAS - Contacto</title>
+  <meta name="description" content="Contacto - VIII Concurso de ideas para la creación de una empresa." />
+  <link rel="stylesheet" href="arte.css" />
+</head>
+<body>
+  <header>
+    <h1>CONTACTO</h1>
+    <nav>
+      <ul>
+        <li><a href="PÁGINA WEB.html" class="boton activo">INICIO</a></li>
+                <a href="carreras.html" class="boton">CARRERAS</a>
+                <li><a href="contacto.html" class="boton">CONTACTO</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section aria-labelledby="contacto-title">
+      <h2 id="contacto-title">Contactá con el CEO de la empresa</h2>
+
+      <!-- Formulario de contacto -->
+      <!-- Nota: el envío se maneja con Java.js (mailto por defecto).
+           Si prefieres enviar sin depender del cliente de correo, te puedo
+           integrar Formspree / EmailJS en segundos. -->
+      <form id="formContacto" aria-label="Formulario de contacto">
+        <label for="nombre">Nombre o Institución:</label>
+        <input type="text" id="nombre" name="nombre" required aria-required="true" />
+
+        <label for="email">Tu correo:</label>
+        <input type="email" id="email" name="email" required aria-required="true" />
+
+        <label for="asunto">Asunto:</label>
+        <input type="text" id="asunto" name="asunto" required aria-required="true" />
+
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" rows="6" required aria-required="true"></textarea>
+
+        <button type="submit">Enviar mensaje</button>
+
+        <!-- Pequeña ayuda visual para usuarios -->
+        <p class="form-ayuda">Al enviar se abrirá tu cliente de correo para finalizar el envío.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>VIII CONCURSO DE IDEAS PARA LA CREACIÓN DE UNA EMPRESA</p>
+  </footer>
+
+  <!-- Incluye el script principal. Usa defer para que se ejecute tras parsear el HTML -->
+</body>
+
+  <!-- Script específico para el formulario de contacto (sin dependencia externa) -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function(){
+    const form = document.getElementById('formContacto');
+    if (!form) return;
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      const nombre = document.getElementById('nombre')?.value.trim();
+      const email = document.getElementById('email')?.value.trim();
+      const asunto = document.getElementById('asunto')?.value.trim();
+      const mensaje = document.getElementById('mensaje')?.value.trim();
+      if (!nombre || !email || !asunto || !mensaje) { alert('Por favor, completá todos los campos antes de enviar.'); return; }
+      const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      if (!emailValido) { alert('Por favor, ingresá un correo electrónico válido.'); return; }
+      const destinatario = 'nicolashernandezsanchez91@gmail.com';
+      const cuerpo = `${mensaje}\n\nAtentamente,\n${nombre}\nEmail: ${email}`;
+      const mailtoLink = `mailto:${destinatario}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
+      window.location.href = mailtoLink;
+    });
+  });
+  </script>
+
+</html>
+</body>
+</html>

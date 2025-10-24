@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIII CONCURSO DE IDEAS PARA LA CREACIÓN DE UNA EMPRESA</title>
+    <link rel="stylesheet" href="arte.css">
+
+</head>
+<body>
+    <header>
+        <h1>CARRERAS</h1>
+        <nav>
+            <ul>
+                <li><a href="PÁGINA WEB.html" class="boton activo">INICIO</a></li>
+                <a href="carreras.html" class="boton">CARRERAS</a>
+                <li><a href="contacto.html" class="boton">CONTACTO</a></li>
+                
+
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+    <section>
+        <h2>Lista de carreras</h2>
+
+        <div class="galeria-carreras">
+    <!-- Biología -->
+        <div class="carrera-item" data-carrera="derecho">
+            <img src="img/derecho.jpg" alt="Derecho" class="carrera">
+            <span class="carrera-titulo">BIOLOGÍA</span>
+        </div>
+    
+  <!-- Ingeniería Informática -->
+        <div class="carrera-item" data-carrera="informatica">
+            <img src="img/informatica.jpg" alt="Ingeniería Informática" class="carrera">
+            <span class="carrera-titulo">INGENIERÍA INFORMÁTICA</span>
+        </div>
+
+  <!-- Medicina -->
+        <div class="carrera-item" data-carrera="medicina">
+            <img src="img/medicina.jpg" alt="Medicina" class="carrera">
+            <span class="carrera-titulo">MEDICINA</span>
+        </div>
+
+
+  <!-- Administración de Empresas -->
+        <div class="carrera-item" data-carrera="administracion">
+            <img src="img/ADE.jpeg" alt="Administración de Empresas" class="carrera">
+            <span class="carrera-titulo">ADE</span>
+        </div>
+
+
+  <!-- Derecho -->
+        <div class="carrera-item" data-carrera="derecho">
+            <img src="img/derecho.jpg" alt="Derecho" class="carrera">
+            <span class="carrera-titulo">DERECHO</span>
+        </div>
+    </div>
+
+
+    <!-- Contenedores con la información de cada carrera -->
+
+        <!-- Información de Administración de Empresas -->
+    <div class="info-carrera" data-carrera="administracion">
+        <h3>Administración de Empresas</h3>
+        <p>Forma profesionales en gestión, finanzas y liderazgo organizacional.</p>
+    </div>
+
+        <!-- Información de Arquitectura -->
+    <div class="info-carrera" data-carrera="arquitectura">
+        <h3>Arquitectura</h3>
+        <p>Combina arte y técnica para diseñar espacios funcionales y estéticos.</p>
+    </div>
+
+        <!-- Información de Medicina -->
+    <div class="info-carrera" data-carrera="medicina">
+        <h3>Medicina</h3>
+        <p>Estudia el cuerpo humano y busca prevenir, diagnosticar y tratar enfermedades.</p>
+    </div>
+
+        <!-- Información de Derecho -->
+    <div class="info-carrera" data-carrera="derecho">
+        <h3>Derecho</h3>
+        <p>Forma expertos en leyes, justicia y defensa legal.</p>
+    </div>
+
+        <!-- Información de Ingeniería Informática -->
+    <div class="info-carrera" data-carrera="informatica">
+        <h3>Ingeniería Informática</h3>
+        <p>Se enfoca en el desarrollo de software, redes, sistemas inteligentes y soluciones tecnológicas para empresas.</p>
+    </div>
+
+    <!-- Información de Filosofía -->
+    <div class="info-carrera" data-carrera="filosofia">
+        <h3>Filosofía</h3>
+        <p>Explora cuestiones fundamentales sobre la existencia, el conocimiento, la ética y el pensamiento crítico.</p>
+    </div>
+
+    <!-- Información de Diseño Gráfico -->
+    <div class="info-carrera" data-carrera ="diseno">
+        <h3>Diseño Gráfico</h3>
+        <p>Utiliza elementos visuales para comunicar ideas, crear identidad de marca y desarrollar contenido creativo.</p>
+    </div>
+
+    </section>
+
+    </main>
+
+    <footer>
+        <p>VIII CONCURSO DE IDEAS PARA LA CREACIÓN DE UNA EMPRESA</p>
+    </footer>
+
+        <!-- Script específico para la galería de carreras (sin dependencia externa) -->
+        <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            const galeria = document.querySelector('.galeria-carreras');
+            const bloquesInfo = document.querySelectorAll('.info-carrera');
+            if (!galeria) return;
+
+            galeria.addEventListener('click', function(ev){
+                const item = ev.target.closest('.carrera-item');
+                if (!item) return;
+                const clave = item.dataset.carrera;
+
+                // Oculta todos los bloques y quita activos
+                bloquesInfo.forEach(b => b.removeAttribute('data-visible'));
+                document.querySelectorAll('.carrera-item').forEach(c => c.classList.remove('activo'));
+
+                const seleccionado = Array.from(bloquesInfo).find(b => (b.dataset.carrera||'').trim() === (clave||'').trim());
+                if (seleccionado) {
+                    seleccionado.setAttribute('data-visible','true');
+                    try{ seleccionado.scrollIntoView({behavior:'smooth', block:'start'}); } catch(e){}
+                }
+
+                item.classList.add('activo');
+            });
+
+            // Soporte por teclado (Enter / Space)
+            galeria.addEventListener('keydown', function(ev){
+                if (ev.key === 'Enter' || ev.key === ' ') {
+                    const item = ev.target.closest('.carrera-item');
+                    if (item) item.click();
+                }
+            });
+        });
+        </script>
+
+</body>
+</html>

@@ -1,0 +1,225 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 1em;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 1em;
+}
+
+/* Estilo base para todos los botones de navegación */
+a.boton {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007BFF; /* Azul normal */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+}
+
+/* Estilo cuando el mouse pasa por encima */
+a.boton:hover {
+  background-color: #0056b3; /* Azul más oscuro */
+}
+
+/* Estilo especial para el botón activo (página actual) */
+a.boton.activo {
+  background-color: #28a745; /* Verde para destacar */
+  cursor: default; /* No parece clickeable */
+}
+
+ul#listaCarreras {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul#listaCarreras li {
+  background-color: #f2f2f2;
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 18px;
+}
+
+/* Contenedor horizontal con desplazamiento */
+.galeria-carreras {
+  display: flex; /* Coloca las imágenes en fila */
+  overflow-x: auto; /* Permite desplazamiento horizontal si hay muchas */
+  gap: 20px; /* Espacio entre imágenes */
+  padding: 20px;
+  scroll-behavior: smooth;
+}
+
+/* Estilo para cada imagen de carrera */
+.carrera {
+  width: 200px;
+  height: 150px;
+  object-fit: cover; /* Ajusta la imagen sin deformarla */
+  border-radius: 10px; /* Esquinas suaves */
+  cursor: pointer; /* Se ve como botón */
+  transition: transform 0.3s ease;
+}
+
+/* Efecto al pasar el mouse */
+.carrera:hover {
+  transform: scale(1.05); /* Agranda ligeramente */
+}
+
+/* Contenedor de información de la carrera */
+#infoCarrera {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  font-size: 18px;
+  display: none; /* Oculto por defecto */
+}
+
+/* Oculta todas las secciones de información por defecto */
+.info-carrera {
+  display: none;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+/* Mostrar el bloque de información cuando el JS define data-visible="true" */
+.info-carrera[data-visible="true"] {
+  display: block;
+}
+
+/* Estilo básico para el formulario */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+label {
+  font-weight: bold;
+}
+
+input, textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Contenedor de cada imagen con texto */
+.carrera-item {
+  position: relative;
+  display: inline-block;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carrera-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+
+/* Imagen de la carrera */
+.carrera {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+/* Texto superpuesto sobre la imagen */
+.carrera-titulo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 0;
+  pointer-events: none;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8); /* sombra fuerte para legibilidad */
+}
+
+
+/* Ajustes generales para la galería */
+section img {
+    width: 250px;       /* Tamaño más razonable */
+    height: auto;       /* Mantiene proporción */
+    border-radius: 10px;  /* Bordes redondeados opcional */
+    display: block;     /* Para centrar bien */
+    margin: 0 auto;     /* Centrado horizontal */
+}
+
+/* Estilo para figure */
+figure {
+    text-align: center;
+    margin: 15px;
+    display: inline-block; /* Para que estén en fila */
+}
+
+/* Texto debajo de cada imagen */
+figcaption {
+    font-size: 14px;
+    color: #555;
+    margin-top: 5px;
+}
